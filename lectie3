@@ -2,11 +2,59 @@ using System;
 
 namespace FirstProgram
 {
+    struct coord
+    {
+        public int x;
+        public int y;
+        public string nume;
+
+        public coord(int x, int y, string nume)
+        {
+            this.x = x;
+            this.y = y;
+            this.nume = nume;
+        }
+    }
+
+
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            calculator();
+            structuri();
+        }
+
+        public static void structuri()
+        {
+            coord locatie = new coord(10, 15, "kfc");
+
+            locatie.x = locatie.x + 1;
+            locatie.y = locatie.y + 1;
+            locatie.nume = "jsgjsfj";
+
+            coord[] locatii_actuale = new coord[10];
+
+
+        }
+
+        public static void stringuri()
+        {
+            //concatenare, split, substring, cautare
+
+            string s1 = "asd";
+            string s2 = "123";
+            string s3 = "Ana are mere";
+
+            string[] cuvinte = s3.Split(' ');
+
+            Console.WriteLine(s1 + s2);
+
+            foreach (string s in cuvinte)
+                Console.WriteLine(s);
+
+            Console.WriteLine(s3.Contains("Ana"));
+
+            Console.WriteLine(s3.Substring(4, 5));
         }
 
         public static void calculator()
