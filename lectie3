@@ -1,0 +1,99 @@
+using System;
+
+namespace FirstProgram
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            calculator();
+        }
+
+        public static void calculator()
+        {
+            //operatiuni adunare, scadere, inmultire, impartire, ridiare la putere, factorial, radical
+
+            int x = 0;
+
+            while (x == 0)
+            {
+
+                Console.WriteLine("Alegeti operatiunea dorita:");
+                Console.WriteLine("1. Adunare");
+                Console.WriteLine("2. Scadere");
+                Console.WriteLine("3. Inmultire");
+                Console.WriteLine("4. Impartire");
+                Console.WriteLine("5. Ridicare la putere");
+                Console.WriteLine("6. Radical");
+                Console.WriteLine("0. Exit");
+
+                double a = 0;
+                double b = 0;
+                int op = -1;
+                try
+                {
+                    op = int.Parse(Console.ReadLine());
+
+                    Console.Write("Intorudceti a=");
+                    a = double.Parse(Console.ReadLine());
+
+                    if (op != 6)
+                    {
+                        Console.Write("Intorudceti b=");
+                        b = double.Parse(Console.ReadLine());
+                    }
+
+                    switch (op)
+                    {
+                        case 1: Console.WriteLine("Adunare: " + a + "+" + b + "=" + (a + b)); break;
+                        case 2: Console.WriteLine("Scadere: " + a + "-" + b + "=" + (a - b)); break;
+                        case 3: Console.WriteLine("Inmultire: " + a + "*" + b + "=" + (a * b)); break;
+                        case 4: Console.WriteLine("Impartire: " + a + "/" + b + "=" + (a / b)); break;
+                        case 5: Console.WriteLine("Rdicare la putere: " + a + "+" + b + "=" + Math.Pow(a, b)); break;
+                        case 6: Console.WriteLine("Radical: " + a + "=" + Math.Sqrt(a)); break;
+                        case 0: x = 1; break;
+                    }
+                }
+                catch(DivideByZeroException ex)
+                {
+                    Console.WriteLine("Nu se poate imparti la 0");
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
+                
+
+            }
+        }
+
+        public static void fib()
+        {
+            long a = 0;
+            long b = 1;
+            long count = 1;
+
+            long fib = 1;
+            long nr;
+
+            Console.WriteLine("Intoduceti nr:");
+            nr = long.Parse(Console.ReadLine());
+
+            Console.WriteLine("fib[0]=0");
+            Console.WriteLine("fib[1]=1");
+
+            while (fib < nr)
+            {
+                count++;
+                fib = a + b;
+                if (fib < nr)
+                {
+                    a = b;
+                    b = fib;
+                    Console.WriteLine("fib[" + count + "]=" + fib);
+                }
+            }
+        }
+    }
+}
